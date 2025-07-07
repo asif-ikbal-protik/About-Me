@@ -1,5 +1,6 @@
 import { Download, Mail, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import profileImage from "@assets/file_00000000c4d862308224d5d69b545e41_1751921686877.png";
 
 export default function HeroSection() {
   const downloadResume = () => {
@@ -31,8 +32,12 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 text-center">
         <div className="glass-hero rounded-3xl p-12 animate-fade-in">
           {/* Professional Avatar */}
-          <div className="mb-8 mx-auto w-32 h-32 glass rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-2xl animate-float border border-white/20">
-            AI
+          <div className="mb-8 mx-auto w-32 h-32 glass rounded-full overflow-hidden shadow-2xl animate-float border border-white/20">
+            <img 
+              src={profileImage} 
+              alt="Asif Ikbal - Data Annotation Manager & AI Specialist"
+              className="w-full h-full object-cover"
+            />
           </div>
           
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
