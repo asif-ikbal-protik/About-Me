@@ -31,7 +31,7 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 text-center">
         <div className="glass-hero rounded-3xl p-12 animate-fade-in">
           {/* Professional Avatar */}
-          <div className="mb-8 mx-auto w-32 h-32 glass rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-xl animate-float">
+          <div className="mb-8 mx-auto w-32 h-32 glass rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-2xl animate-float border border-white/20">
             AI
           </div>
           
