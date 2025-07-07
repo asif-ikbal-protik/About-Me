@@ -74,39 +74,39 @@ export default function ExperienceSection() {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-white" ref={sectionRef}>
+    <section id="experience" className="py-20" ref={sectionRef}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Professional Experience</h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Professional Experience</h2>
+          <p className="text-lg text-white/80 max-w-2xl mx-auto">
             Proven track record in leading data annotation projects and managing AI/ML workflows across diverse industries.
           </p>
         </div>
         
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-primary-200"></div>
+          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 to-purple-400"></div>
           
           {/* Experience Items */}
           <div className="space-y-12">
             {experiences.map((exp, index) => (
               <div key={index} className={`relative flex items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-                <div className={`absolute left-6 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 ${exp.current ? 'bg-primary-600' : 'bg-slate-400'} rounded-full border-4 border-white shadow-lg`}></div>
+                <div className={`absolute left-6 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 ${exp.current ? 'bg-gradient-to-r from-cyan-400 to-blue-500' : 'bg-white/60'} rounded-full border-4 border-white/20 shadow-lg`}></div>
                 <div className={`ml-16 md:ml-0 md:w-1/2 ${index % 2 === 1 ? 'md:pl-8' : 'md:pr-8'} animate-on-scroll`}>
-                  <Card className="bg-slate-50 hover:shadow-md transition-shadow">
+                  <Card className="glass-card hover:scale-105 transition-all duration-300 border-white/20">
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between mb-2">
                         {exp.current && (
-                          <Badge className="text-sm font-semibold text-primary-600 bg-primary-50">
+                          <Badge className="text-sm font-semibold text-cyan-300 bg-cyan-400/20 border-cyan-400/30">
                             CURRENT
                           </Badge>
                         )}
-                        <span className="text-sm text-slate-500 ml-auto">{exp.period}</span>
+                        <span className="text-sm text-white/70 ml-auto">{exp.period}</span>
                       </div>
-                      <h3 className="text-xl font-bold text-slate-800 mb-2">{exp.title}</h3>
-                      <p className="text-primary-600 font-semibold mb-3">{exp.company}</p>
-                      <p className="text-slate-600 mb-4">{exp.description}</p>
-                      <ul className="text-sm text-slate-600 space-y-1">
+                      <h3 className="text-xl font-bold text-white mb-2">{exp.title}</h3>
+                      <p className="text-cyan-300 font-semibold mb-3">{exp.company}</p>
+                      <p className="text-white/80 mb-4">{exp.description}</p>
+                      <ul className="text-sm text-white/70 space-y-1">
                         {exp.highlights.map((highlight, i) => (
                           <li key={i}>• {highlight}</li>
                         ))}

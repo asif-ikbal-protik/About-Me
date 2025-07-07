@@ -76,11 +76,11 @@ export default function SkillsSection() {
   };
 
   return (
-    <section id="skills" className="py-20 bg-slate-50" ref={sectionRef}>
+    <section id="skills" className="py-20" ref={sectionRef}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Technical Expertise</h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Technical Expertise</h2>
+          <p className="text-lg text-white/80 max-w-2xl mx-auto">
             Comprehensive skill set spanning AI/ML annotation tools, project management, and cloud technologies.
           </p>
         </div>
@@ -91,17 +91,17 @@ export default function SkillsSection() {
             const IconComponent = category.icon;
             
             return (
-              <Card key={index} className="bg-white hover:shadow-md transition-shadow animate-on-scroll">
+              <Card key={index} className="glass-card hover:scale-105 transition-all duration-300 border-white/20 animate-on-scroll">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
-                    <div className={`w-12 h-12 ${colors.bg} rounded-lg flex items-center justify-center mr-4`}>
-                      <IconComponent className={`${colors.text} h-6 w-6`} />
+                    <div className={`w-12 h-12 glass rounded-lg flex items-center justify-center mr-4`}>
+                      <IconComponent className="text-white h-6 w-6" />
                     </div>
-                    <h3 className="text-xl font-semibold text-slate-800">{category.title}</h3>
+                    <h3 className="text-xl font-semibold text-white">{category.title}</h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill, skillIndex) => (
-                      <Badge key={skillIndex} className={`${colors.badgeBg} ${colors.badgeText} text-sm`}>
+                      <Badge key={skillIndex} className="glass text-white/90 text-sm border-white/30">
                         {skill}
                       </Badge>
                     ))}

@@ -75,34 +75,34 @@ export default function ProjectsSection() {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-white" ref={sectionRef}>
+    <section id="projects" className="py-20" ref={sectionRef}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Featured Projects</h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Featured Projects</h2>
+          <p className="text-lg text-white/80 max-w-2xl mx-auto">
             Key AI annotation projects showcasing expertise across diverse domains and cutting-edge technologies.
           </p>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="bg-slate-50 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-on-scroll">
+            <Card key={index} className="glass-card overflow-hidden hover:scale-105 transition-all duration-300 border-white/20 animate-on-scroll">
               <div className={`h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-full object-cover opacity-90" 
+                  className="w-full h-full object-cover opacity-80" 
                 />
-                <Badge className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white border-none">
+                <Badge className="absolute top-4 right-4 glass text-white border-white/30">
                   {project.category}
                 </Badge>
               </div>
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-slate-800 mb-3">{project.title}</h3>
-                <p className="text-slate-600 mb-4">{project.description}</p>
+                <h3 className="text-xl font-semibold text-white mb-3">{project.title}</h3>
+                <p className="text-white/80 mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, tagIndex) => (
-                    <Badge key={tagIndex} variant="secondary" className="text-xs">
+                    <Badge key={tagIndex} className="glass text-white/90 text-xs border-white/30">
                       {tag}
                     </Badge>
                   ))}

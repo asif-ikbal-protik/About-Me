@@ -61,26 +61,26 @@ export default function EducationSection() {
   };
 
   return (
-    <section className="py-20 bg-slate-50" ref={sectionRef}>
+    <section className="py-20" ref={sectionRef}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Education */}
           <div className="animate-on-scroll">
-            <h2 className="text-2xl font-bold text-slate-800 mb-6">Education</h2>
-            <Card className="bg-white shadow-sm">
+            <h2 className="text-2xl font-bold text-white mb-6">Education</h2>
+            <Card className="glass-card border-white/20">
               <CardContent className="p-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                    <GraduationCap className="text-primary-600 h-6 w-6" />
+                  <div className="w-12 h-12 glass rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                    <GraduationCap className="text-white h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-800 mb-1">
+                    <h3 className="text-lg font-semibold text-white mb-1">
                       B.Sc. in Computer Science and Engineering
                     </h3>
-                    <p className="text-primary-600 font-medium mb-2">
+                    <p className="text-cyan-300 font-medium mb-2">
                       Bangladesh University of Business Technology
                     </p>
-                    <p className="text-slate-500 text-sm">2018 – 2022 • Dhaka, Bangladesh</p>
+                    <p className="text-white/70 text-sm">2018 – 2022 • Dhaka, Bangladesh</p>
                   </div>
                 </div>
               </CardContent>
@@ -89,18 +89,18 @@ export default function EducationSection() {
           
           {/* Certifications */}
           <div className="animate-on-scroll">
-            <h2 className="text-2xl font-bold text-slate-800 mb-6">Certifications</h2>
+            <h2 className="text-2xl font-bold text-white mb-6">Certifications</h2>
             <div className="space-y-4">
               {certifications.map((cert, index) => (
-                <Card key={index} className="bg-white shadow-sm">
+                <Card key={index} className="glass-card border-white/20 hover:scale-105 transition-all duration-300">
                   <CardContent className="p-4">
                     <div className="flex items-center">
-                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center mr-3 ${getColorClasses(cert.color)}`}>
-                        <Award className="h-4 w-4" />
+                      <div className="w-8 h-8 glass rounded-lg flex items-center justify-center mr-3">
+                        <Award className="h-4 w-4 text-white" />
                       </div>
                       <div>
-                        <p className="font-medium text-slate-800">{cert.title}</p>
-                        <p className="text-sm text-slate-600">{cert.issuer} • {cert.date}</p>
+                        <p className="font-medium text-white">{cert.title}</p>
+                        <p className="text-sm text-white/70">{cert.issuer} • {cert.date}</p>
                       </div>
                     </div>
                   </CardContent>

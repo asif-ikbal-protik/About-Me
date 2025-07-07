@@ -21,7 +21,7 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-200/50">
+    <nav className="fixed top-0 w-full glass-nav z-50 border-b border-white/20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center py-4">
           <div className="text-xl font-bold gradient-text">Asif Ikbal</div>
@@ -32,7 +32,7 @@ export default function Navigation() {
               <button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className="text-slate-600 hover:text-primary-600 transition-colors"
+                className="text-white/90 hover:text-white transition-colors hover:scale-105 font-medium"
               >
                 {item.label}
               </button>
@@ -41,7 +41,7 @@ export default function Navigation() {
           
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-slate-600"
+            className="md:hidden text-white/90 hover:text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -51,13 +51,13 @@ export default function Navigation() {
       
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-slate-200">
+        <div className="md:hidden glass border-t border-white/20">
           <div className="px-4 py-2 space-y-2">
             {navItems.map((item) => (
               <button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left py-2 text-slate-600 hover:text-primary-600"
+                className="block w-full text-left py-2 text-white/90 hover:text-white font-medium"
               >
                 {item.label}
               </button>

@@ -67,11 +67,11 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white" ref={sectionRef}>
+    <section id="contact" className="py-20" ref={sectionRef}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Get In Touch</h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Get In Touch</h2>
+          <p className="text-lg text-white/80 max-w-2xl mx-auto">
             Ready to collaborate on your next AI annotation project? Let's discuss how I can help scale your data operations.
           </p>
         </div>
@@ -79,55 +79,55 @@ export default function ContactSection() {
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div className="animate-on-scroll">
-            <h3 className="text-xl font-semibold text-slate-800 mb-6">Contact Information</h3>
+            <h3 className="text-xl font-semibold text-white mb-6">Contact Information</h3>
             <div className="space-y-4">
               <div className="flex items-center">
-                <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center mr-4">
-                  <Mail className="text-primary-600 h-5 w-5" />
+                <div className="w-10 h-10 glass rounded-lg flex items-center justify-center mr-4">
+                  <Mail className="text-white h-5 w-5" />
                 </div>
                 <div>
-                  <p className="font-medium text-slate-800">Email</p>
-                  <a href="mailto:asifikbalprotik@gmail.com" className="text-primary-600 hover:text-primary-700">
+                  <p className="font-medium text-white">Email</p>
+                  <a href="mailto:asifikbalprotik@gmail.com" className="text-cyan-300 hover:text-cyan-200 transition-colors">
                     asifikbalprotik@gmail.com
                   </a>
                 </div>
               </div>
               
               <div className="flex items-center">
-                <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center mr-4">
-                  <Phone className="text-primary-600 h-5 w-5" />
+                <div className="w-10 h-10 glass rounded-lg flex items-center justify-center mr-4">
+                  <Phone className="text-white h-5 w-5" />
                 </div>
                 <div>
-                  <p className="font-medium text-slate-800">Phone</p>
-                  <a href="tel:+8801878044854" className="text-primary-600 hover:text-primary-700">
+                  <p className="font-medium text-white">Phone</p>
+                  <a href="tel:+8801878044854" className="text-cyan-300 hover:text-cyan-200 transition-colors">
                     +880 1878 044854
                   </a>
                 </div>
               </div>
               
               <div className="flex items-center">
-                <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center mr-4">
-                  <MapPin className="text-primary-600 h-5 w-5" />
+                <div className="w-10 h-10 glass rounded-lg flex items-center justify-center mr-4">
+                  <MapPin className="text-white h-5 w-5" />
                 </div>
                 <div>
-                  <p className="font-medium text-slate-800">Location</p>
-                  <p className="text-slate-600">Dhaka, Bangladesh</p>
+                  <p className="font-medium text-white">Location</p>
+                  <p className="text-white/80">Dhaka, Bangladesh</p>
                 </div>
               </div>
             </div>
             
             <div className="mt-8">
-              <h4 className="font-semibold text-slate-800 mb-4">Connect on Social</h4>
+              <h4 className="font-semibold text-white mb-4">Connect on Social</h4>
               <div className="flex space-x-4">
                 <a 
                   href="https://linkedin.com/in/asif-ikbal" 
-                  className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 hover:bg-primary-600 hover:text-white transition-colors"
+                  className="glass w-10 h-10 rounded-lg flex items-center justify-center text-white/90 hover:text-white hover:scale-110 transition-all"
                 >
                   <i className="fab fa-linkedin"></i>
                 </a>
                 <a 
                   href="https://github.com/asif-ikbal" 
-                  className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 hover:bg-primary-600 hover:text-white transition-colors"
+                  className="glass w-10 h-10 rounded-lg flex items-center justify-center text-white/90 hover:text-white hover:scale-110 transition-all"
                 >
                   <i className="fab fa-github"></i>
                 </a>
@@ -137,23 +137,24 @@ export default function ContactSection() {
           
           {/* Contact Form */}
           <div className="animate-on-scroll">
-            <Card>
+            <Card className="glass-card border-white/20">
               <CardContent className="p-6">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <Label htmlFor="name">Name</Label>
+                    <Label htmlFor="name" className="text-white">Name</Label>
                     <Input
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
                       placeholder="Your Name"
+                      className="glass border-white/30 text-white placeholder:text-white/60"
                       required
                     />
                   </div>
                   
                   <div>
-                    <Label htmlFor="email">Email</Label>
+                    <Label htmlFor="email" className="text-white">Email</Label>
                     <Input
                       id="email"
                       name="email"
@@ -161,24 +162,26 @@ export default function ContactSection() {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="your.email@example.com"
+                      className="glass border-white/30 text-white placeholder:text-white/60"
                       required
                     />
                   </div>
                   
                   <div>
-                    <Label htmlFor="subject">Subject</Label>
+                    <Label htmlFor="subject" className="text-white">Subject</Label>
                     <Input
                       id="subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleInputChange}
                       placeholder="Project Discussion"
+                      className="glass border-white/30 text-white placeholder:text-white/60"
                       required
                     />
                   </div>
                   
                   <div>
-                    <Label htmlFor="message">Message</Label>
+                    <Label htmlFor="message" className="text-white">Message</Label>
                     <Textarea
                       id="message"
                       name="message"
@@ -186,13 +189,14 @@ export default function ContactSection() {
                       onChange={handleInputChange}
                       rows={4}
                       placeholder="Tell me about your project requirements..."
+                      className="glass border-white/30 text-white placeholder:text-white/60"
                       required
                     />
                   </div>
                   
                   <Button 
                     type="submit" 
-                    className="w-full"
+                    className="w-full glass text-white border-white/30 hover:scale-105 transition-all"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
