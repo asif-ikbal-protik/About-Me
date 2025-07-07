@@ -6,6 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -14,9 +16,36 @@ export default function ContactSection() {
     subject: "",
     message: ""
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
+  const queryClient = useQueryClient();
+
+  const contactMutation = useMutation({
+    mutationFn: async (formData: typeof formData) => {
+      return await apiRequest(`/api/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+    },
+    onSuccess: () => {
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for your message. I will get back to you soon.",
+      });
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      queryClient.invalidateQueries({ queryKey: ["/api/contacts"] });
+    },
+    onError: (error: any) => {
+      toast({
+        title: "Error sending message",
+        description: error.message || "Please try again later or contact me directly via email.",
+        variant: "destructive",
+      });
+    },
+  });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -43,27 +72,7 @@ export default function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for your message. I will get back to you soon.",
-      });
-      
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    } catch (error) {
-      toast({
-        title: "Error sending message",
-        description: "Please try again later or contact me directly via email.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    contactMutation.mutate(formData);
   };
 
   return (
@@ -197,9 +206,9 @@ export default function ContactSection() {
                   <Button 
                     type="submit" 
                     className="w-full glass text-white border-white/30 hover:scale-105 transition-all"
-                    disabled={isSubmitting}
+                    disabled={contactMutation.isPending}
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {contactMutation.isPending ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </CardContent>
