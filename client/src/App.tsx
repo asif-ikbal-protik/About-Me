@@ -12,11 +12,13 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        {/* Using a hash-based router for maximum compatibility with GitHub Pages */}
         <Router hook={useHashLocation}>
           <Switch>
             <Route path="/" component={Home} />
-            <Route component={NotFound} />
+            {/* The :rest path will match anything else and show the NotFound component */}
+            <Route path="/:rest*">
+              <NotFound />
+            </Route>
           </Switch>
         </Router>
       </TooltipProvider>
