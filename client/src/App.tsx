@@ -9,8 +9,8 @@ import NotFound from "@/pages/not-found";
 // 2. Rename your component to avoid a conflict
 function AppRouter() {
   return (
-    // 3. Wrap everything in the Router component
-    <Router>
+    // 3. Add the basepath to the Router component
+    <Router basepath="/About-Me">
       <Switch>
         <Route path="/" component={Home} />
         <Route component={NotFound} />
