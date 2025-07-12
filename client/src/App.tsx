@@ -1,4 +1,5 @@
 import { Switch, Route, Router } from "wouter";
+import { useHashLocation } from "wouter/use-hash-location";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -11,11 +12,8 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        {/*
-          The Router component tells all child routes to work from this base path.
-          This is the standard fix for deploying to a sub-folder like /About-Me/.
-        */}
-        <Router base="/About-Me">
+        {/* Using a hash-based router for maximum compatibility with GitHub Pages */}
+        <Router hook={useHashLocation}>
           <Switch>
             <Route path="/" component={Home} />
             <Route component={NotFound} />

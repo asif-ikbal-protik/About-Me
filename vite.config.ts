@@ -13,7 +13,6 @@ export default defineConfig(async () => {
       : [];
 
   return {
-    base: "/About-Me/",
     plugins: [react(), runtimeErrorOverlay(), cartographer].flat(),
     resolve: {
       alias: {
