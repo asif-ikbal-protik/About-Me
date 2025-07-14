@@ -15,10 +15,7 @@ function App() {
         <Router hook={useHashLocation}>
           <Switch>
             <Route path="/" component={Home} />
-            {/* The :rest path will match anything else and show the NotFound component */}
-            <Route path="/:rest*">
-              <NotFound />
-            </Route>
+            <Route component={NotFound} />
           </Switch>
         </Router>
       </TooltipProvider>
